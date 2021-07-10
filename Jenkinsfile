@@ -81,6 +81,7 @@ podTemplate(label: label,
 
       stage('E2E test') {
         container('python') {
+          sh 'pip3 install -r e2e/requirements.txt'
           def uiTestStatus = sh script:'pytest e2e/', returnStatus: true
           if (uiTestStatus != 0) {
             currentBuild.result = 'ABORTED'
