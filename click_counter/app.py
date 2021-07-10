@@ -26,3 +26,11 @@ def click():
         return make_response(jsonify(ok)), 200
     else:
         return make_response(jsonify(bad_request)), 500
+
+
+@app.route("/healthcheck", methods=["GET"])
+def healthcheck():
+    if db:
+        return make_response(jsonify(ok)), 200
+    else:
+        return make_response(jsonify(bad_request)), 500
