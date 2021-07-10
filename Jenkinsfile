@@ -31,7 +31,7 @@ podTemplate(label: label,
       stage('Test project') {
         container('python') {
             sh 'pip3 install -r requirements.txt'
-            def passed = sh script: 'pytest', returnStatus: true
+            def passed = sh script: 'pytest --ignore=e2e', returnStatus: true
             if (passed != 0) {
                   currentBuild.result = 'ABORTED'
                   error('Failed unit tests!')
