@@ -1,12 +1,12 @@
 #!/usr/bin/env groovy
 
 
-def label="clickercounter-${UUID.randomUUID().toString()}"
+def label="clickcounter-${UUID.randomUUID().toString()}"
 def gitCommit 
 def repoName = "ethanlebioda/clickcounter"
 def dev = "dev"
 def main = "main"
-def argoApp = "clickercounter-"
+def argoApp = "clickcounter-"
 def appWaitTimeout = 600
 def argocdServer = "argocd-server.argocd.svc.cluster.local"
 podTemplate(label: label, 
