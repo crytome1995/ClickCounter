@@ -1,4 +1,4 @@
-from click_counter import helpers
+import helpers
 
 
 def _build_payload(country, ip):
