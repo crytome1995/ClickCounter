@@ -5,7 +5,7 @@ ENV FLASK_APP=app.py \
 
 WORKDIR /application
 
-COPY click_counter/* .
+COPY click_counter/* /application/
 COPY requirements.txt .
 
 RUN pip3 install -r requirements.txt
