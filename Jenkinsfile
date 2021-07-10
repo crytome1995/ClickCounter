@@ -31,7 +31,7 @@ podTemplate(label: label,
       stage('Test project') {
         container('python') {
             sh 'pip3 install -r requirements.txt'
-            def passed = sh script: 'pytest --ignore=e2e', returnStatus: true
+            def passed = sh script: 'pytest --ignore=click_counter/e2e', returnStatus: true
             if (passed != 0) {
                   currentBuild.result = 'ABORTED'
                   error('Failed unit tests!')
@@ -81,8 +81,8 @@ podTemplate(label: label,
 
       stage('E2E test') {
         container('python') {
-          sh 'pip3 install -r e2e/requirements.txt'
-          def uiTestStatus = sh script:'pytest e2e/', returnStatus: true
+          sh 'pip3 install -r click_counter/e2e/requirements.txt'
+          def uiTestStatus = sh script:'pytest click_counter/e2e/', returnStatus: true
           if (uiTestStatus != 0) {
             currentBuild.result = 'ABORTED'
             error('End to end tests failed!')

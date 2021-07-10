@@ -1,6 +1,6 @@
 import os
 import requests
-from click_counter.config import config
+from config import config
 import boto3
 import os
 
