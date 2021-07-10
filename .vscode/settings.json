@@ -1,0 +1,8 @@
+{
+  "python.terminal.executeInFileDir": true,
+  "python.autoComplete.extraPaths": [".\\ClickCounter\\click_counter\\"],
+  "python.formatting.provider": "black",
+  "python.analysis.extraPaths": [
+    ".\\ClickCounter\\click_counter\\"
+  ]
+}
