@@ -11,7 +11,7 @@ def appWaitTimeout = 600
 def argocdServer = "argocd-server.argocd.svc.cluster.local"
 podTemplate(label: label, 
     containers: [
-        containerTemplate(name: 'python', image: 'python:3.9.6-slim',ttyEnabled: true, privileged: true, command: 'cat'),
+        containerTemplate(name: 'python', image: 'python:3.9.6-slim',ttyEnabled: true, privileged: true, command: 'cat', envVars: [envVar(key: 'E2E_HOST', value: 'clickcounter.control.clickthebutton.click')]),
         containerTemplate(name: 'dind', image: 'docker:20-dind',privileged: true, envVars: [envVar(key: 'DOCKER_TLS_CERTDIR', value: '')]),
         containerTemplate(name: 'argo', image: 'ethanlebioda/argocli-sleep:1.0.0',ttyEnabled: true)
     ])
