@@ -18,9 +18,9 @@ release_prod () {
     echo "releasing tag to main $2"
     commit_id=$(git rev-parse HEAD)
     git checkout $1
-    git pull
+    git fetch
     git status
-    git cherry-pick ${commit_id}
+    git cherry-pick ${commit_id} && git commit -n
     git status
     git push ${url} $1
 }
