@@ -15,10 +15,9 @@ release_dev () {
 
 release_prod () {
     cd Charts
-    git checkout $1
     echo "releasing tag to main $2"
-    git pull
     git fetch --all
+    git checkout $1
     git status
     git cherry-pick $2
     git status
