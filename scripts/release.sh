@@ -18,7 +18,7 @@ release_prod () {
     git checkout $1
     echo "releasing tag to main $2"
     git pull
-    git fetch dev
+    git fetch --all
     git status
     git cherry-pick $2
     git status
