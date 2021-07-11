@@ -1,6 +1,6 @@
 # ClickCounter
 
-Count number of clicks of the clicker repo button
+Count number of clicks of the clicker repo button project
 
 To run:
 
