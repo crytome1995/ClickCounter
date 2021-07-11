@@ -19,9 +19,7 @@ release_prod () {
     commit_id=$(git rev-parse HEAD)
     git checkout $1
     git fetch
-    git status
-    git cherry-pick ${commit_id} && git commit -n
-    git status
+    git cherry-pick --strategy=recursive -X theirs ${commit_id}
     git push ${url} $1
 }
 
