@@ -16,11 +16,11 @@ release_dev () {
 release_prod () {
     cd Charts
     echo "releasing tag to main $2"
-    git fetch --all
+    commit_id=$(git rev-parse HEAD)
     git checkout $1
     git status
-    git cherry-pick $2
-    git status
+    git cherry-pick ${commit_id}
+    git statuss
     git push ${url} $1
 }
 
