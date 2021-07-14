@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, make_response
+from flask_cors import CORS
 from dynamo import Dynamo
 from config import config
 from helpers import COUNTRY_KEY, IP_KEY, validate_request
@@ -7,6 +8,7 @@ from loggers import logger
 db = Dynamo(config.default_region, config.click_bags_table, config.click_users_table)
 
 app = Flask(__name__)
+CORS(app)
 
 bad_request = {"message": "bad_request"}
 ok = {"message": "ok"}
